@@ -1,0 +1,26 @@
+'''
+Here's an example of a program that searches a folder tree for files with a certain file extension (such as .pdf or .jpg) and copies them to a new folder:
+'''
+import os
+import shutil
+
+def search_and_copy(src_folder, file_extension, dst_folder):
+    for root, dirs, files in os.walk(src_folder):
+        for file in files:
+            if file.endswith(file_extension):
+                src_path = os.path.join(root, file)
+                dst_path = os.path.join(dst_folder, file)
+                shutil.copy2(src_path, dst_path)
+
+src_folder = "/path/to/src_folder"
+file_extension = ".pdf"
+dst_folder = "/path/to/dst_folder"
+
+search_and_copy(src_folder, file_extension, dst_folder)
+'''
+This program uses the os.walk() function to traverse the folder tree starting from 
+src_folder. For each file in the tree, it checks if the file has the specified file_extension 
+(in this case, .pdf) and if so, copies it to the dst_folder using the shutil.copy2() 
+function. The shutil.copy2() function is used instead of shutil.copy() because it 
+preserves the metadata of the file (such as timestamps) when copying.
+'''
