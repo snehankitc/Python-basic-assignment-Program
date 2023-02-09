@@ -1,0 +1,15 @@
+import sqlite3
+
+conn = sqlite3.connect('books.db')
+cursor = conn.cursor()
+
+cursor.execute('''
+    CREATE TABLE books (
+        title text,
+        author text,
+        year integer
+    )
+''')
+
+conn.commit()
+conn.close()
