@@ -1,0 +1,38 @@
+'''
+You can write a generator function in Python that generates prime numbers by using the 
+yield statement to return the next prime number in the sequence on each call to next(). 
+The function can keep track of the next candidate number to check for primality, 
+and use a simple check for division by primes less than the square root of the candidate number to determine if it is prime. 
+Here's an example:
+'''
+def genPrimes():
+    primes = []   # List to store the prime numbers generated so far
+    candidate = 2  # The next candidate number to check for primality
+    
+    while True:
+        is_prime = True
+        for prime in primes:
+            if prime > candidate**0.5:
+                break
+            if candidate % prime == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes.append(candidate)
+            yield candidate
+        candidate += 1
+'''
+You can use the genPrimes generator by creating an instance of it and calling its next() method repeatedly:
+>>> prime_gen = genPrimes()
+>>> next(prime_gen)
+2
+>>> next(prime_gen)
+3
+>>> next(prime_gen)
+5
+>>> next(prime_gen)
+7
+>>> next(prime_gen)
+11
+...
+'''
