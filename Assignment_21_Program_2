@@ -1,0 +1,24 @@
+'''
+Here is a sample code in Python to add the current date to a text file "today.txt" as a string, 
+and then read the contents of the file into a string variable today_string:
+'''
+import datetime
+
+# Get the current date and format it as a string
+now = datetime.datetime.now()
+today = now.strftime("%Y-%m-%d")
+
+# Open the file in write mode and add the string to it
+with open("today.txt", "w") as file:
+    file.write(today)
+
+# Open the file in read mode and read its contents into a string variable
+with open("today.txt", "r") as file:
+    today_string = file.read()
+'''
+This code first uses the datetime module to get the current date and time, 
+formats it as a string using the strftime method, and writes it to the file "today.txt" using
+the write method. The with statement is used to open the file in write mode and automatically 
+close it after the block of code inside it has been executed. The code then opens the same file 
+in read mode and reads its contents into the string variable today_string using the read method.
+'''
