@@ -1,0 +1,9 @@
+import datetime
+
+# Get the current date and format it as a string
+now = datetime.datetime.now()
+today = now.strftime("%Y-%m-%d")
+
+# Open the file in write mode and add the string to it
+with open("today.txt", "w") as file:
+    file.write(today)
