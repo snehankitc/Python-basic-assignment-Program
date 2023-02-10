@@ -1,0 +1,26 @@
+'''
+Here is a sample code in Python to list the files in the parent directory 
+(assuming that the current working directory has a parent directory):
+'''
+import os
+
+# Get the current working directory
+cwd = os.getcwd()
+
+# Get the parent directory
+parent_dir = os.path.abspath(os.path.join(cwd, os.pardir))
+
+# Get a list of all files in the parent directory
+files = [f for f in os.listdir(parent_dir) if os.path.isfile(os.path.join(parent_dir, f))]
+
+# Print the list of files
+print(files)
+
+'''
+This code uses the os and os.path modules to get the current working 
+directory using the getcwd method, and then get the parent directory using the 
+abspath and join methods. The listdir method is used to get a list of all the 
+files in the parent directory, and the isfile method is used to filter the list 
+and only include regular files (not directories).
+The list of files is then printed to the console.
+'''
