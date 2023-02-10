@@ -1,0 +1,22 @@
+import multiprocessing
+import time
+import random
+
+def process_function():
+    # Wait for a random number of seconds
+    wait_time = random.uniform(1, 5)
+    time.sleep(wait_time)
+
+    # Print the current time
+    print(f"Time: {time.ctime()}")
+
+# Create three processes
+processes = [multiprocessing.Process(target=process_function) for i in range(3)]
+
+# Start the processes
+for process in processes:
+    process.start()
+
+# Wait for all processes to finish
+for process in processes:
+    process.join()
